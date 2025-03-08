@@ -5,6 +5,18 @@
   "references": [
     {
       "path": "./apps/tech-challenge"
+    },
+    {
+      "path": "./libs/dashboard/ui"
+    },
+    {
+      "path": "./libs/dashboard/feature"
+    },
+    {
+      "path": "./libs/dashboard/data-access"
+    },
+    {
+      "path": "./libs/dashboard/domain"
     }
   ]
 }

@@ -3,6 +3,12 @@
   "include": [],
   "references": [
     {
+      "path": "../../libs/dashboard/domain"
+    },
+    {
+      "path": "../../libs/dashboard/ui"
+    },
+    {
       "path": "./tsconfig.app.json"
     }
   ],

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { DashboardComponent } from "../components/dashboard.component";
 
 @Component({
-  imports: [CommonModule, NxWelcomeComponent],
+  imports: [CommonModule, DashboardComponent],
   selector: 'app-dashboard-entry',
-  template: `<app-nx-welcome></app-nx-welcome>`,
+  template: `<app-dashboard />`,
 })
 export class RemoteEntryComponent {}

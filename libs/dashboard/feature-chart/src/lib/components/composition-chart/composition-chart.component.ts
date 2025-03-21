@@ -1,7 +1,19 @@
 import { Component, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
+import {
+  ChartConfiguration,
+  ChartData,
+  ChartType,
+  DoughnutController,
+  ArcElement,
+  Tooltip,
+  Legend,
+  Colors,
+  Chart,
+} from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import 'chartjs-plugin-datalabels';
+
+Chart.register(DoughnutController, ArcElement, Tooltip, Legend, Colors);
 
 @Component({
   selector: 'app-composition-chart',

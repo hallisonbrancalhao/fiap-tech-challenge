@@ -1,6 +1,28 @@
 import { Component, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartData } from 'chart.js';
+import {
+  BarElement,
+  CategoryScale,
+  ChartConfiguration,
+  ChartData,
+  LinearScale,
+} from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import {
+  Chart,
+  BarController,
+  ArcElement,
+  Tooltip,
+  Legend,
+  Colors,
+} from 'chart.js';
+Chart.register(
+  BarController,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend
+);
 
 @Component({
   selector: 'app-bar-chart',

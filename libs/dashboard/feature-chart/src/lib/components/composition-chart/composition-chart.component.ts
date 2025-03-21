@@ -40,16 +40,16 @@ export class CompositionChartComponent {
         display: true,
         position: 'top',
       },
-      // datalabels: {
-      //   anchor: 'center',
-      //   align: 'center',
-      //   formatter: (value, ctx) => {
-      //     if (ctx.chart.data.labels) {
-      //       return ctx.chart.data.labels[ctx.dataIndex];
-      //     }
-      //     return '';
-      //   },
-      // },
+      datalabels: {
+        anchor: 'center',
+        align: 'center',
+        formatter: (value, ctx) => {
+          if (ctx.chart.data.labels) {
+            return ctx.chart.data.labels[ctx.dataIndex];
+          }
+          return '';
+        },
+      },
     },
     responsive: true,
     maintainAspectRatio: false,

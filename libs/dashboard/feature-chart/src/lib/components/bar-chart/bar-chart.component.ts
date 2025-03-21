@@ -21,10 +21,10 @@ export class BarChartComponent {
       legend: {
         display: true,
       },
-      // datalabels: {
-      //   anchor: 'end',
-      //   align: 'end',
-      // },
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+      },
     },
     responsive: true,
     maintainAspectRatio: false,

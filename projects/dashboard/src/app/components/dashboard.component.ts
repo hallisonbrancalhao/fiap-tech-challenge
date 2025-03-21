@@ -1,14 +1,14 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
-// import { AppTabsComponent, BarChartComponent, CompositionChartComponent } from "@fiap-tech-challenge/chart";
+import { AppTabsComponent, BarChartComponent, CompositionChartComponent } from "@fiap-tech-challenge/chart";
 
 @Component({
   selector: "app-dashboard",
   imports: [
     CommonModule,
-    // AppTabsComponent,
-    // BarChartComponent,
-    // CompositionChartComponent,
+    AppTabsComponent,
+    BarChartComponent,
+    CompositionChartComponent,
   ],
   templateUrl: './dashboard.component.html',
 })

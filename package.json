@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx run bytebank:serve"
+    "start": "nx serve bytebank",
+    "start:dev": "nx serve bytebank --devRemotes=dashboard"
   },
   "private": true,
   "devDependencies": {

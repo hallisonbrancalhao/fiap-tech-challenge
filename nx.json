@@ -44,5 +44,13 @@
       "style": "scss",
       "unitTestRunner": "none"
     }
-  }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "eslint:lint"
+      }
+    }
+  ]
 }

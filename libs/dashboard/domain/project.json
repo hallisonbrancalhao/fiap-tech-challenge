@@ -1,0 +1,9 @@
+{
+  "name": "dashboard-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/dashboard/domain/src",
+  "projectType": "library",
+  "tags": ["scope:dashboard", "type:domain"],
+  "// targets": "to see all targets run: nx show project dashboard-domain --web",
+  "targets": {}
+}

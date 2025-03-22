@@ -10,10 +10,8 @@ import { BaseChartDirective } from 'ng2-charts';
 import {
   Chart,
   BarController,
-  ArcElement,
   Tooltip,
   Legend,
-  Colors,
 } from 'chart.js';
 Chart.register(
   BarController,

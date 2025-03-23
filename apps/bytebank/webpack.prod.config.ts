@@ -11,7 +11,7 @@ export default withModuleFederation(
     ...config,
     remotes: [
       ['dashboard', 'https://main.d2uexl1wva9mc9.amplifyapp.com/'],
-      ['institutional', 'https://main.d26jbrr617j1yi.amplifyapp.com/']
+      ['institutional', 'https://main.d2n3qfl1jdmcdh.amplifyapp.com/']
     ]
   },
   { dts: false }

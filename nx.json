@@ -35,6 +35,9 @@
           "env": "NX_MF_DEV_REMOTES"
         }
       ]
+    },
+    "server": {
+      "cache": true
     }
   },
   "generators": {

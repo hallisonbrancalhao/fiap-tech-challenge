@@ -6,12 +6,4 @@ import config from './module-federation.config';
  * The DTS Plugin can be enabled by setting dts: true
  * Learn more about the DTS Plugin here: https://module-federation.io/configure/dts.html
  */
-export default withModuleFederation(
-  {
-    ...config,
-    remotes: [
-      ['dashboard', 'https://main.d2uexl1wva9mc9.amplifyapp.com/']
-    ]
-  },
-  { dts: false }
-);
+export default withModuleFederation(config, { dts: false });

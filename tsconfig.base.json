@@ -24,8 +24,17 @@
       "@fiap-tech-challenge/dashboard-domain": [
         "libs/dashboard/domain/src/index.ts"
       ],
+      "@fiap-tech-challenge/feature-home": [
+        "libs/institutional/feature-home/src/index.ts"
+      ],
+      "@fiap-tech-challenge/ui-components": [
+        "libs/shared/ui-components/src/index.ts"
+      ],
       "dashboard/Routes": [
         "projects/dashboard/src/app/remote-entry/entry.routes.ts"
+      ],
+      "institutional/Routes": [
+        "projects/institutional/src/app/remote-entry/entry.routes.ts"
       ]
     }
   },

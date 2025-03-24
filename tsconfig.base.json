@@ -24,12 +24,23 @@
       "@fiap-tech-challenge/dashboard-domain": [
         "libs/dashboard/domain/src/index.ts"
       ],
+      "@fiap-tech-challenge/domain": ["libs/institutional/domain/src/index.ts"],
+      "@fiap-tech-challenge/feature-auth": [
+        "libs/institutional/feature-auth/src/index.ts"
+      ],
       "@fiap-tech-challenge/feature-home": [
         "libs/institutional/feature-home/src/index.ts"
+      ],
+      "@fiap-tech-challenge/institutional-data-access": [
+        "libs/institutional/data-access/src/index.ts"
+      ],
+      "@fiap-tech-challenge/shared-data-access": [
+        "libs/shared/data-access/src/index.ts"
       ],
       "@fiap-tech-challenge/ui-components": [
         "libs/shared/ui-components/src/index.ts"
       ],
+      "@fiap-tech-challenge/ui-global": ["libs/shared/ui-global/src/index.ts"],
       "dashboard/Routes": [
         "projects/dashboard/src/app/remote-entry/entry.routes.ts"
       ],

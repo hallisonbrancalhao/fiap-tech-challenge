@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 
 @Component({
   selector: 'ui-header-institutional',
@@ -6,4 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-institutional.component.scss'],
   standalone: true
 })
-export class HeaderInstitutionalComponent {}
+export class HeaderInstitutionalComponent {
+  createAccount = output<boolean>()
+  login = output<boolean>()
+
+  handleCreateAccount() {
+    this.createAccount.emit(true)
+  }
+
+  handleLogin() {
+    this.login.emit(true)
+  }
+}

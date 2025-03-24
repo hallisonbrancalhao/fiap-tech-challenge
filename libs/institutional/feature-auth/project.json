@@ -1,0 +1,9 @@
+{
+  "name": "feature-auth",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/institutional/feature-auth/src",
+  "projectType": "library",
+  "tags": ["type:feature", "scope:institutional"],
+  "// targets": "to see all targets run: nx show project feature-auth --web",
+  "targets": {}
+}

@@ -32,8 +32,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "projects/institutional/src/environments/environment.dev.ts",
-              "with": "projects/institutional/src/environments/environment.dev.ts"
+              "replace": "apps/bytebank/src/environments/environment.dev.ts",
+              "with": "apps/bytebank/src/environments/environment.dev.ts"
             }
           ],
           "budgets": [

@@ -33,7 +33,7 @@
           "fileReplacements": [
             {
               "replace": "apps/bytebank/src/environments/environment.dev.ts",
-              "with": "apps/bytebank/src/environments/environment.dev.ts"
+              "with": "apps/bytebank/src/environments/environment.ts"
             }
           ],
           "budgets": [

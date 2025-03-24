@@ -1,23 +1,19 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
-import { AppTabsComponent, BarChartComponent, CompositionChartComponent } from "@fiap-tech-challenge/chart";
+import { Component, inject, OnInit } from '@angular/core';
+import { HeaderDashboardComponent } from '@fiap-tech-challenge/ui-components';
+import { AuthFacade } from '@fiap-tech-challenge/shared-data-access';
 
 @Component({
-  selector: "app-dashboard",
-  imports: [
-    CommonModule,
-    AppTabsComponent,
-    BarChartComponent,
-    CompositionChartComponent,
-  ],
+  selector: 'app-dashboard',
+  imports: [CommonModule, HeaderDashboardComponent],
   templateUrl: './dashboard.component.html',
 })
-export class DashboardComponent {
-  selectedOption = 'Composição de Investimentos';
+export class DashboardComponent implements OnInit {
+  #authFacade = inject(AuthFacade);
 
-  tabsList = ['Composição de Investimentos', 'Investimento vs Tempo'];
+  userEmail = this.#authFacade.userEmail$;
 
-  onOptionSelected(option: string) {
-    this.selectedOption = option;
+  ngOnInit() {
+    this.#authFacade.getAuthenticatedUser();
   }
 }

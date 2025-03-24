@@ -2,6 +2,7 @@ import { DestroyRef, inject, Injectable, signal } from '@angular/core';
 import { AuthRepository } from '../infrastructure';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AuthUser, RegisterUser } from '@fiap-tech-challenge/shared-domain';
+import { jwtDecode, JwtPayload } from 'jwt-decode';
 
 @Injectable({ providedIn: 'root' })
 export class AuthFacade {
@@ -14,6 +15,9 @@ export class AuthFacade {
   #token = signal<string | null>(null)
   token$ = this.#token.asReadonly()
 
+  #userEmail = signal<string>('')
+  userEmail$ = this.#userEmail.asReadonly()
+
   storeToken(token: string) {
     localStorage.setItem('token', token)
   }
@@ -21,6 +25,8 @@ export class AuthFacade {
   getAuthenticatedUser() {
     const token = localStorage.getItem('token')
     if (token) {
+      const dataUser: JwtPayload & { email?: string } = jwtDecode(token)
+      if(dataUser.email) this.#userEmail.set(dataUser.email)
       this.#isLogged.set(true)
       this.#token.set(token)
       return true;
@@ -47,7 +53,6 @@ export class AuthFacade {
       next: ({ data, errors }) => {
         if (data && !errors) this.#isLogged.set(true)
         if (!data && errors) this.#isLogged.set(false)
-
       }
     })
   }

@@ -15,6 +15,7 @@ import { AuthFacade } from '@fiap-tech-challenge/shared-data-access';
 })
 export class AuthLoginComponent {
   #dialogRef = inject(DialogRef<AuthLoginComponent>);
+
   #facade = inject(AuthFacade);
 
   isLogged = this.#facade.isLogged$;

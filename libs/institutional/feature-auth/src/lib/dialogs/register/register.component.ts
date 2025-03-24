@@ -23,8 +23,6 @@ export class AuthRegisterComponent {
   }
 
   submit() {
-    console.log(this.form.getRawValue());
-    console.log('this.form.invalid', this.form.invalid);
     if (this.form.invalid) return;
     this.#facade.register(this.form.getRawValue()).add(
       () => this.close()

@@ -6,7 +6,7 @@ import {
   withEventReplay,
 } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
-import { AuthFacade, AuthRepository } from '@fiap-tech-challenge/institutional-data-access';
+import { AuthFacade, AuthRepository } from '@fiap-tech-challenge/shared-data-access';
 
 const FACADES = [ AuthFacade ];
 const REPOSITORIES = [ AuthRepository ];

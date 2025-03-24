@@ -1,6 +1,6 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TypedForm } from '@fiap-tech-challenge/ui-global';
-import { RegisterUser } from '@fiap-tech-challenge/domain';
+import { RegisterUser } from '@fiap-tech-challenge/shared-data-access';
 
 
 export class RegistrationForm extends FormGroup<TypedForm<RegisterUser>> {

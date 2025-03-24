@@ -3,7 +3,7 @@ import { DialogRef } from '@angular/cdk/dialog';
 import { AuthenticationForm } from '../../forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
-import { AuthFacade } from '@fiap-tech-challenge/institutional-data-access';
+import { AuthFacade } from '@fiap-tech-challenge/shared-data-access';
 
 
 @Component({

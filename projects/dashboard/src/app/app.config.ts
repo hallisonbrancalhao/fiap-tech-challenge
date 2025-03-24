@@ -1,7 +1,7 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
-import { AuthFacade, AuthRepository } from '@fiap-tech-challenge/institutional-data-access';
+import { AuthFacade, AuthRepository } from '@fiap-tech-challenge/shared-data-access';
 
 
 const FACADES = [ AuthFacade ];

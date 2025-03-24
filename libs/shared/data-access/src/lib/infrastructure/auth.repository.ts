@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { GET_TOKEN_QUERY } from './get-token.query';
 import { Apollo } from 'apollo-angular';
-import { AuthUser, RegisterUser } from '@fiap-tech-challenge/domain';
+import { AuthUser, RegisterUser } from '@fiap-tech-challenge/shared-domain';
 import { CREATE_USER } from './create-user.mutate';
 
 @Injectable({ providedIn: 'root' })
@@ -17,11 +17,11 @@ export class AuthRepository {
     });
   }
 
-  register(credentials: RegisterUser) {
+  register(user: RegisterUser) {
     return this.#apollo.mutate({
       mutation: CREATE_USER,
       variables: {
-        credentials,
+        user
       },
     });
   }

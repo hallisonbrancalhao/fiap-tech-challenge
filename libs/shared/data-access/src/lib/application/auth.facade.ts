@@ -1,7 +1,7 @@
 import { DestroyRef, inject, Injectable, signal } from '@angular/core';
 import { AuthRepository } from '../infrastructure';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { AuthUser, RegisterUser } from '@fiap-tech-challenge/domain';
+import { AuthUser, RegisterUser } from '@fiap-tech-challenge/shared-domain';
 
 @Injectable({ providedIn: 'root' })
 export class AuthFacade {

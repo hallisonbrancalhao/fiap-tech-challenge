@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { DialogRef } from '@angular/cdk/dialog';
-import { AuthFacade } from '@fiap-tech-challenge/institutional-data-access';
+import { AuthFacade } from '@fiap-tech-challenge/shared-data-access';
 import { RegistrationForm } from '../../forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';

@@ -1,11 +1,9 @@
 import { gql } from 'apollo-angular';
 import { TypedDocumentNode } from '@apollo/client';
+import { AuthUser } from '@fiap-tech-challenge/shared-domain';
 
 export interface LoginUserDto {
-  credentials: {
-    email: string,
-    password: string,
-  },
+  credentials: AuthUser
 }
 
 export interface GetTokenResult {

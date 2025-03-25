@@ -79,7 +79,7 @@ O estado dos componentes é gerenciado de forma reativa utilizando **Signals**, 
 1. Instale as dependências:
    ```bash
    npm install
-   ```
+
 2. Execute o projeto pincipal em desenvolvimento (`bytebank`):
    ```bash
    npm run start:dev
@@ -89,11 +89,11 @@ O estado dos componentes é gerenciado de forma reativa utilizando **Signals**, 
     ```bash
     nx serve bytebank
     ```
-  - Remote (`institutional`):
+  - Para apenas o remote (`institutional`):
     ```bash
     nx serve institutional
     ```
-  - Remote (`dashboard`):
+  - Para apenas o remote (`dashboard`):
     ```bash
     nx serve dashboard
     ```
@@ -116,10 +116,3 @@ O estado dos componentes é gerenciado de forma reativa utilizando **Signals**, 
 - [Signals no Angular](https://angular.dev/guide/signals)
 - [GraphQL Official](https://graphql.org/)
 - [Clean Architecture - Robert C. Martin](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
-
-## Contribuições
-Contribuições são bem-vindas! Para sugerir melhorias ou reportar problemas, abra uma issue ou envie um pull request.
-
----
-
-Espero que esse README atenda às suas expectativas! Se precisar de ajustes ou mais detalhes, é só avisar.

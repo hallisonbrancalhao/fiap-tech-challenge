@@ -3,10 +3,12 @@ import { GET_TOKEN_QUERY } from './get-token.query';
 import { Apollo } from 'apollo-angular';
 import { AuthUser, RegisterUser } from '@fiap-tech-challenge/shared-domain';
 import { CREATE_USER } from './create-user.mutate';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class AuthRepository {
   #apollo = inject(Apollo);
+  #http = inject(HttpClient);
 
   login(credentials: AuthUser) {
     return this.#apollo.mutate({
@@ -24,5 +26,9 @@ export class AuthRepository {
         user
       },
     });
+  }
+
+  getUser() {
+    return this.#http.get<RegisterUser>('/auth/profile')
   }
 }

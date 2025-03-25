@@ -1,5 +1,6 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { CurrencyPipe, DatePipe } from '@angular/common';
+import { TransactionFacade } from '@fiap-tech-challenge/dashboard-data-access';
 
 @Component({
   selector: 'app-dashboard-overview',
@@ -7,13 +8,18 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
   standalone: true,
   imports: [DatePipe, CurrencyPipe],
 })
-export class DashboardOverviewComponent {
-  @Input() name!: string;
-  @Input() balance!: number;
+export class DashboardOverviewComponent implements OnInit {
+  name = input.required<string>()
 
+  #transactionFacade = inject(TransactionFacade);
+
+  amount$ = this.#transactionFacade.amount$;
   isBalanceVisible = signal(true);
-
   currentDate = new Date();
+
+  ngOnInit() {
+    this.#transactionFacade.getBalance();
+  }
 
   toggleBalance() {
     this.isBalanceVisible.update((v) => !v);

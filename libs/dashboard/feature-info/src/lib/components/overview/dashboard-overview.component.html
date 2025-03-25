@@ -1,11 +1,9 @@
 <div class="bg-teal-800 text-white p-6 rounded-2xl shadow-xl max-w-md mx-auto">
-  <!-- Cabeçalho -->
   <div class="mb-4">
-    <h2 class="text-xl font-semibold">Olá, {{ name }}! 😊</h2>
+    <h2 class="text-xl font-semibold">Olá, {{ name() }}! 😊</h2>
     <p class="text-sm opacity-75">{{ currentDate | date: "dd/mm/yyyy:hh:mm" }}</p>
   </div>
 
-  <!-- Saldo -->
   <div class="space-y-2">
     <div class="flex justify-between items-center">
       <span class="font-semibold">Saldo</span>
@@ -23,7 +21,7 @@
     <p class="text-sm opacity-80">Conta Corrente</p>
     <p class="text-2xl font-bold">
       @if (isBalanceVisible()) {
-        R$ {{ balance | currency }}
+        {{ amount$() | currency: 'BRL' }}
       } @else {
         ••••••
       }

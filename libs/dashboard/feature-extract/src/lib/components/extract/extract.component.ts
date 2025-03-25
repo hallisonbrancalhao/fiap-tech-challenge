@@ -1,17 +1,25 @@
-import { Component } from '@angular/core';
-import { DecimalPipe, NgClass, NgForOf } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { CurrencyPipe, DatePipe, NgClass, NgForOf, TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { TransactionFacade } from '@fiap-tech-challenge/dashboard-data-access';
 
 @Component({
   selector: 'app-dashboard-extract',
   templateUrl: './extract.component.html',
   standalone: true,
-  imports: [NgClass, NgForOf, DecimalPipe],
+  imports: [
+    NgClass,
+    NgForOf,
+    DatePipe,
+    CurrencyPipe,
+    TitleCasePipe,
+  ],
 })
-export class ExtractComponent {
-  transactions = [
-    { month: 'Novembro', type: 'Depósito', amount: 150, date: '18/11/2022' },
-    { month: 'Novembro', type: 'Depósito', amount: 100, date: '21/11/2022' },
-    { month: 'Novembro', type: 'Depósito', amount: 50, date: '21/11/2022' },
-    { month: 'Novembro', type: 'Transferência', amount: -500, date: '21/11/2022' },
-  ];
+export class ExtractComponent implements OnInit {
+  #transactionsFacade = inject(TransactionFacade);
+
+  transactions$ = this.#transactionsFacade.transactions$;
+
+  ngOnInit() {
+    this.#transactionsFacade.getTransactions();
+  }
 }

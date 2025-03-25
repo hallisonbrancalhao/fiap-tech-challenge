@@ -29,5 +29,12 @@
     <button type="submit" class="w-full bg-green-600 text-white p-2 rounded-lg mt-4">
       Acessar
     </button>
+
+    @if (error()) {
+      <div class="text-red-500 text-sm mt-4">
+        {{ error() }}
+      </div>
+    }
+
   </form>
 </div>

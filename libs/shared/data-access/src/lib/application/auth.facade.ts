@@ -17,6 +17,9 @@ export class AuthFacade {
   #userName = signal<string>('')
   userName$ = this.#userName.asReadonly()
 
+  #error = signal<string | null>(null)
+  error$ = this.#error.asReadonly()
+
   storeToken(token: string) {
     localStorage.setItem('token', token)
   }
@@ -34,6 +37,7 @@ export class AuthFacade {
   }
 
   login(credentials: AuthUser) {
+    this.#error.set(null)
     return this.#repository.login(credentials).pipe(takeUntilDestroyed(this.#destroyRef)).subscribe({
       next: ({ data, errors }) => {
         if (data && !errors) {
@@ -41,17 +45,26 @@ export class AuthFacade {
           this.storeToken(data.login.accessToken)
           this.#isLogged.set(true);
         }
-        if (!data && errors) this.#isLogged.set(false)
-      }
+        if (!data && errors) {
+          this.#isLogged.set(false);
+          this.#error.set(errors[0].message)
+        }
+      },
+      error: () => this.#error.set('Erro ao realizar login')
     })
   }
 
   register(credentials: RegisterUser) {
+    this.#error.set(null)
     return this.#repository.register(credentials).pipe(takeUntilDestroyed(this.#destroyRef)).subscribe({
       next: ({ data, errors }) => {
         if (data && !errors) this.#isLogged.set(true)
-        if (!data && errors) this.#isLogged.set(false)
-      }
+        if (!data && errors) {
+          this.#isLogged.set(false);
+          this.#error.set('Erro ao criar o cadastro')
+        }
+      },
+      error: () => this.#error.set('Erro ao criar o cadastro')
     })
   }
 

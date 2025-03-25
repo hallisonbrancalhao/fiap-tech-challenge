@@ -19,6 +19,7 @@ export class AuthLoginComponent {
   #facade = inject(AuthFacade);
 
   isLogged = this.#facade.isLogged$;
+  error = this.#facade.error$;
 
   form = new AuthenticationForm();
 

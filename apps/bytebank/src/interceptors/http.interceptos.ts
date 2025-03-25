@@ -7,6 +7,9 @@ import { AuthFacade } from '@fiap-tech-challenge/shared-data-access';
 export function loggingInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> {
   const baseUrl = environment.apiUrl;
   const authToken = inject(AuthFacade).token$();
+
+  if (req.url.includes('/graphql')) return next(req);
+
   const newReq = req.clone({
     url: `${baseUrl}${req.url}`,
     headers: req.headers.append('Authorization', `Bearer ${authToken}`),

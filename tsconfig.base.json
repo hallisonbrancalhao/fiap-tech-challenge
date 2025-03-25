@@ -27,8 +27,14 @@
       "@fiap-tech-challenge/feature-auth": [
         "libs/institutional/feature-auth/src/index.ts"
       ],
+      "@fiap-tech-challenge/feature-extract": [
+        "libs/dashboard/feature-extract/src/index.ts"
+      ],
       "@fiap-tech-challenge/feature-home": [
         "libs/institutional/feature-home/src/index.ts"
+      ],
+      "@fiap-tech-challenge/feature-info": [
+        "libs/dashboard/feature-info/src/index.ts"
       ],
       "@fiap-tech-challenge/shared-data-access": [
         "libs/shared/data-access/src/index.ts"

@@ -1,8 +1,15 @@
-<!--Header-->
-<ui-header-dashboard [email]="userEmail()" />
-
-<!-- sidebar -->
-<!-- overview -->
-<!-- <router-outlet /> -->
-
-<!-- extract  -->
+    <ui-header-dashboard [email]="userEmail()" />
+<div class="parent">
+  <aside>
+    <ui-sidebar-dashboard />
+  </aside>
+  <article class="overview">
+    <app-dashboard-overview />
+  </article>
+  <div class="routes">
+    <router-outlet />
+  </div>
+  <section>
+    <app-dashboard-extract />
+  </section>
+</div>

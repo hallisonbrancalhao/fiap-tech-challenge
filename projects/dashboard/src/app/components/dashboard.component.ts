@@ -2,9 +2,8 @@ import { CommonModule } from "@angular/common";
 import { Component, inject, OnInit } from '@angular/core';
 import { HeaderDashboardComponent, SidebarDashboardComponent } from '@fiap-tech-challenge/ui-components';
 import { AuthFacade } from '@fiap-tech-challenge/shared-data-access';
-import { CreateTransactionComponent, DashboardOverviewComponent } from '@fiap-tech-challenge/feature-info';
+import { DashboardOverviewComponent } from '@fiap-tech-challenge/feature-info';
 import { ExtractComponent } from '@fiap-tech-challenge/feature-extract';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,8 +13,6 @@ import { RouterOutlet } from '@angular/router';
     DashboardOverviewComponent,
     SidebarDashboardComponent,
     ExtractComponent,
-    RouterOutlet,
-    CreateTransactionComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],

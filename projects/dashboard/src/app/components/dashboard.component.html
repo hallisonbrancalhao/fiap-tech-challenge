@@ -5,8 +5,7 @@
   </aside>
   <article class="dashboard__content">
     <app-dashboard-overview [name]="userName()" />
-    <app-create-transaction />
-    <router-outlet />
+    <ng-content />
   </article>
   <section class="dashboard__extract">
     <app-dashboard-extract />

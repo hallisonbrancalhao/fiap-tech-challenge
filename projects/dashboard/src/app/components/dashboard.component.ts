@@ -5,10 +5,8 @@ import {
   SidebarDashboardComponent,
 } from '@fiap-tech-challenge/ui-components';
 import { AuthFacade } from '@fiap-tech-challenge/shared-data-access';
-import { DashboardOverviewComponent } from '@fiap-tech-challenge/feature-info';
 import { ExtractComponent } from '@fiap-tech-challenge/feature-extract';
-import { OptionsPanelComponent } from '../../../../../libs/dashboard/feature-info/src/lib/components/options-panel/options-panel.component';
-import { MyCardsComponent } from '../../../../../libs/dashboard/feature-info/src/lib/components/my-cards/my-cards.components';
+import { OptionsPanelComponent, MyCardsComponent, DashboardOverviewComponent} from '@fiap-tech-challenge/feature-info';
 
 @Component({
   selector: 'app-dashboard',

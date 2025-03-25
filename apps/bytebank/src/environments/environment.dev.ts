@@ -1,5 +1,5 @@
 export const environment = {
   env: 'dev',
   production: false,
-  apiUrl: 'http://localhost:3000/graphql',
+  apiUrl: 'https://fiap-tech-challenge-api-production.up.railway.app/graphql',
 };

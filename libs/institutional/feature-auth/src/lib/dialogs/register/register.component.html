@@ -40,5 +40,11 @@
     <button type="submit" class="w-full bg-orange-500 text-white p-2 rounded-lg mt-4 cursor-pointer">
       Criar conta
     </button>
+
+    @if (error()) {
+      <div class="text-red-500 text-sm mt-4">
+        {{ error() }}
+      </div>
+    }
   </form>
 </div>

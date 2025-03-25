@@ -16,6 +16,8 @@ export class AuthRegisterComponent {
   #dialogRef = inject(DialogRef<AuthRegisterComponent>);
   #facade = inject(AuthFacade);
 
+  error = this.#facade.error$;
+
   form = new RegistrationForm();
 
   close(): void {

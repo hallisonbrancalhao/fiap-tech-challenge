@@ -79,8 +79,8 @@ O estado dos componentes é gerenciado de forma reativa utilizando **Signals**, 
 1. Instale as dependências:
    ```bash
    npm install
-   ```
-2. Execute o host em desenvolvimento (`bytebank`):
+
+2. Execute o projeto pincipal em desenvolvimento (`bytebank`):
    ```bash
    npm run start:dev
    ```
@@ -116,4 +116,3 @@ O estado dos componentes é gerenciado de forma reativa utilizando **Signals**, 
 - [Signals no Angular](https://angular.dev/guide/signals)
 - [GraphQL Official](https://graphql.org/)
 - [Clean Architecture - Robert C. Martin](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
-

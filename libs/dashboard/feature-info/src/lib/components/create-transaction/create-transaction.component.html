@@ -1,0 +1,36 @@
+<div class="bg-gradient-to-b from-gray-100 to-gray-200 max-w-md mx-auto h-auto sm:h-[450px] md:min-w-[580px] rounded-lg shadow-lg sm:p-8 p-6 flex flex-col items-center sm:items-start pt-8">
+  <h2 class="text-3xl text-primary font-semibold text-center sm:text-left">Nova Transação</h2>
+
+  <form [formGroup]="form" (ngSubmit)="createTransaction()" class="mt-8 w-full flex flex-col gap-8 items-center sm:items-start">
+    <div class="w-full">
+      <label for="category" class="text-sm font-medium text-gray-600">Categoria</label>
+      <select id="category" formControlName="type" class="mt-2 block w-full p-3 rounded-lg border border-gray-300 shadow-sm focus:ring-primary focus:border-primary">
+        <option value="" disabled selected>Selecione uma categoria</option>
+        <option *ngFor="let category of types$()" [value]="category.value">
+          {{ category.display }}
+        </option>
+      </select>
+    </div>
+
+    <div class="w-full sm:w-1/2">
+      <label for="value" class="text-sm font-medium text-gray-600">Valor</label>
+      <input
+        id="value"
+        type="number"
+        step="0.01"
+        formControlName="value"
+        class="mt-2 block w-full p-3 rounded-lg border border-gray-300 shadow-sm focus:ring-primary focus:border-primary"
+      />
+      <span *ngIf="form.get('value')?.invalid && form.get('value')?.touched" class="text-red-500 text-sm mt-1">Valor inválido</span>
+    </div>
+
+    <div class="flex gap-4 flex-col sm:flex-row w-full justify-center sm:justify-start">
+      <button type="submit" [disabled]="!form.valid" class="w-full sm:w-auto mt-4 px-6 py-3 bg-primary text-white font-bold rounded-lg shadow-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">
+        Salvar
+      </button>
+      <div (click)="handleReset()" class="w-full sm:w-auto mt-4 px-6 py-3 bg-gray-500 text-white font-bold rounded-lg text-center cursor-pointer hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">
+        Limpar formulário
+      </div>
+    </div>
+  </form>
+</div>

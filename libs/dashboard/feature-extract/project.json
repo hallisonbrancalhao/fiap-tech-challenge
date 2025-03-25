@@ -1,0 +1,9 @@
+{
+  "name": "feature-extract",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/dashboard/feature-extract/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project feature-extract --web",
+  "targets": {}
+}

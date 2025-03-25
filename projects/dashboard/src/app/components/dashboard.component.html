@@ -1,13 +1,15 @@
-<div class="flex flex-col h-screen mt-[1rem] px-[1rem]">
-  <h1 class="text-3xl font-bold underline">Estatísticas</h1>
-  <p>ESTA É A TELA DO DASHBOARD</p>
-  <app-tabs [tabsList]="tabsList" (optionSelected)="onOptionSelected($event)"></app-tabs>
-  <div  class="flex-1 p-4">
-    <div *ngIf="selectedOption === 'Composição de Investimentos'">
-      <app-composition-chart></app-composition-chart>
-    </div>
-    <div *ngIf="selectedOption === 'Investimento vs Tempo'">
-      <app-bar-chart></app-bar-chart>
-    </div>
-  </div>
+<ui-header-dashboard [email]="userName()" />
+<div class="dashboard">
+  <aside class="dashboard__sidebar">
+    <ui-sidebar-dashboard />
+  </aside>
+  <article class="dashboard__content">
+    <app-dashboard-overview [name]="userName()" />
+    <app-options-panel/>
+    <app-my-cards/>
+    <ng-content />
+  </article>
+  <section class="dashboard__extract">
+    <app-dashboard-extract />
+  </section>
 </div>

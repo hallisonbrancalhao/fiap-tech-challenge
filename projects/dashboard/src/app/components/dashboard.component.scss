@@ -1,0 +1,26 @@
+.dashboard {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+
+  &__sidebar {
+    width: 300px;
+    height: auto;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 480px;
+  }
+
+  &__extract {
+    width: 300px;
+    min-height: calc(100vh - 56px);
+  }
+
+  &__content, &__extract {
+   padding-top: 2rem;
+  }
+}

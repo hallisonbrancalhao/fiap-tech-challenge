@@ -14,6 +14,9 @@ export class AuthFacade {
   #token = signal<string | null>(null)
   token$ = this.#token.asReadonly()
 
+  #userName = signal<string>('')
+  userName$ = this.#userName.asReadonly()
+
   storeToken(token: string) {
     localStorage.setItem('token', token)
   }
@@ -23,6 +26,7 @@ export class AuthFacade {
     if (token) {
       this.#isLogged.set(true)
       this.#token.set(token)
+      this.getUser()
       return true;
     }
 
@@ -47,8 +51,15 @@ export class AuthFacade {
       next: ({ data, errors }) => {
         if (data && !errors) this.#isLogged.set(true)
         if (!data && errors) this.#isLogged.set(false)
-
       }
     })
+  }
+
+  getUser() {
+    return this.#repository.getUser()
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe({
+        next: ({ name }) => this.#userName.set(name)
+      })
   }
 }

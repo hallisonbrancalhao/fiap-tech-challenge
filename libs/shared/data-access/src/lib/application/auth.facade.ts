@@ -1,12 +1,14 @@
-import { DestroyRef, inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { AuthRepository } from '../infrastructure';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
 import { AuthUser, RegisterUser } from '@fiap-tech-challenge/shared-domain';
+import { catchError, shareReplay, tap } from 'rxjs';
+import { CreateUserResult } from '../infrastructure/create-user.mutate';
+import { MutationResult } from 'apollo-angular';
 
 @Injectable({ providedIn: 'root' })
 export class AuthFacade {
   #repository = inject(AuthRepository)
-  #destroyRef = inject(DestroyRef)
 
   #isLogged = signal<boolean>(false)
   isLogged$ = this.#isLogged.asReadonly()
@@ -20,59 +22,70 @@ export class AuthFacade {
   #error = signal<string | null>(null)
   error$ = this.#error.asReadonly()
 
-  storeToken(token: string) {
+  private storeToken(token: string) {
     localStorage.setItem('token', token)
   }
 
-  getAuthenticatedUser() {
+  private getToken() {
     const token = localStorage.getItem('token')
-    if (token) {
+    if (token) this.#token.set(token)
+  }
+
+  getAuthenticatedUser() {
+    if(!this.token$()) this.getToken()
+    if (this.token$()) {
       this.#isLogged.set(true)
-      this.#token.set(token)
       this.getUser()
       return true;
     }
-
     return false;
   }
 
   login(credentials: AuthUser) {
     this.#error.set(null)
-    return this.#repository.login(credentials).pipe(takeUntilDestroyed(this.#destroyRef)).subscribe({
-      next: ({ data, errors }) => {
+    return this.#repository.login(credentials).pipe(
+      tap(({ data, errors }) => {
         if (data && !errors) {
-          this.#token.set(data.login.accessToken)
+          this.#isLogged.set(true)
           this.storeToken(data.login.accessToken)
-          this.#isLogged.set(true);
         }
         if (!data && errors) {
-          this.#isLogged.set(false);
-          this.#error.set(errors[0].message)
+          this.#isLogged.set(false)
+          this.#error.set('Erro ao logar')
         }
-      },
-      error: () => this.#error.set('Erro ao realizar login')
-    })
+      }),
+    )
   }
 
   register(credentials: RegisterUser) {
     this.#error.set(null)
-    return this.#repository.register(credentials).pipe(takeUntilDestroyed(this.#destroyRef)).subscribe({
-      next: ({ data, errors }) => {
+    return this.#repository.register(credentials).pipe(
+      shareReplay<MutationResult<CreateUserResult>>(),
+      tap(({ data, errors }) => {
         if (data && !errors) this.#isLogged.set(true)
         if (!data && errors) {
-          this.#isLogged.set(false);
+          this.#isLogged.set(false)
           this.#error.set('Erro ao criar o cadastro')
         }
-      },
-      error: () => this.#error.set('Erro ao criar o cadastro')
-    })
+      }),
+    )
   }
 
   getUser() {
+    if(!this.token$()) this.getToken();
     return this.#repository.getUser()
-      .pipe(takeUntilDestroyed(this.#destroyRef))
-      .subscribe({
-        next: ({ name }) => this.#userName.set(name)
-      })
+      .pipe(
+        shareReplay<RegisterUser>(),
+        tap((user) => {
+          this.#userName.set(user.name)
+        })
+      )
+  }
+
+  logout() {
+    this.#isLogged.set(false)
+    this.#token.set(null)
+    this.#userName.set('')
+    localStorage.removeItem('token')
   }
 }

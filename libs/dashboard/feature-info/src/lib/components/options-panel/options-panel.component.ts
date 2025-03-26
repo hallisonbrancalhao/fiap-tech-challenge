@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './options-panel.component.html',
 })
 export class OptionsPanelComponent {
-  @Input() title: string = 'Confira os serviços disponíveis';
+  @Input() title = 'Confira os serviços disponíveis';
   @Input() options: string[] = [
     'Empréstimo',
     'Meus Cartões',

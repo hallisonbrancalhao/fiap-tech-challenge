@@ -1,24 +1,27 @@
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { MatTabsModule } from '@angular/material/tabs';
+import { LineChartComponent } from '../line-chart/line-chart.component';
+import { PieChartComponent } from '../pie-chart/pie-chart.component';
+import { TransactionFacade } from '@fiap-tech-challenge/dashboard-data-access';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-tabs',
-  imports: [CommonModule],
+  imports: [MatTabsModule, LineChartComponent, PieChartComponent],
   templateUrl: './tabs.component.html',
 })
-export class AppTabsComponent {
-  @Input() tabsList: string[] = [
-    'Composição de Investimentos',
-    'Investimento vs Tempo',
-  ];
+export class AppTabsComponent implements OnInit {
+  #transactionFacade = inject(TransactionFacade);
+  #destroyRef = inject(DestroyRef)
 
-  @Output() optionSelected = new EventEmitter<string>();
+  transactions$ = this.#transactionFacade.transactions$;
+  depositTransactions$ = this.#transactionFacade.depositTransactions$;
+  withdrawTransactions$ = this.#transactionFacade.withdrawTransactions$;
+  transferTransactions$ = this.#transactionFacade.transferTransactions$;
 
-  activeTab = this.tabsList[0];
-
-  selectTab(tab: string, event: Event): void {
-    event.preventDefault();
-    this.activeTab = tab;
-    this.optionSelected.emit(tab);
+  ngOnInit() {
+    this.#transactionFacade.getTransactions()
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe()
   }
 }

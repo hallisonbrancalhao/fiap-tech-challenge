@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import {
   HeaderDashboardComponent,
   SidebarDashboardComponent,
 } from '@fiap-tech-challenge/ui-components';
 import { AuthFacade } from '@fiap-tech-challenge/shared-data-access';
 import { ExtractComponent } from '@fiap-tech-challenge/feature-extract';
-import { OptionsPanelComponent, MyCardsComponent, DashboardOverviewComponent} from '@fiap-tech-challenge/feature-info';
+import { DashboardOverviewComponent} from '@fiap-tech-challenge/feature-info';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,19 +16,18 @@ import { OptionsPanelComponent, MyCardsComponent, DashboardOverviewComponent} fr
     HeaderDashboardComponent,
     DashboardOverviewComponent,
     SidebarDashboardComponent,
-    ExtractComponent,
-    OptionsPanelComponent,
-    MyCardsComponent,
+    ExtractComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
   #authFacade = inject(AuthFacade);
+  #destroyRef = inject(DestroyRef)
 
   userName = this.#authFacade.userName$;
 
   ngOnInit() {
-    this.#authFacade.getAuthenticatedUser();
+    this.#authFacade.getUser().pipe(takeUntilDestroyed(this.#destroyRef)).subscribe()
   }
 }

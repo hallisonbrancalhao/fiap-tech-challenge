@@ -1,18 +1,14 @@
 <div class="h-full  bg-gray-50 border-r border-gray-200 shadow-sm flex flex-col items-center py-8">
   <nav class="w-full">
     <ul class="space-y-6 text-center">
-      <li>
-        <a href="#" class="block text-gray-800 font-medium hover:text-green-600 transition">Início</a>
-      </li>
-      <li>
-        <a routerLink="new-transaction" class="block text-gray-800 font-medium hover:text-green-600 transition">Transferências</a>
-      </li>
-      <li>
-        <a href="#" class="block text-gray-800 font-medium hover:text-green-600 transition">Investimentos</a>
-      </li>
-      <li>
-        <a href="#" class="block text-green-600 font-semibold">Outros serviços</a>
-      </li>
+      @for (option of menuOptions(); track option.path) {
+        <li>
+          <a routerLink="{{ option.path }}" class="text-gray-800 font-medium hover:text-green-600 transition flex items-center ml-20 gap-2">
+            <span class="material-symbols-rounded">{{ option.icon }}</span>
+            {{ option.label }}
+          </a>
+        </li>
+      }
     </ul>
   </nav>
 </div>

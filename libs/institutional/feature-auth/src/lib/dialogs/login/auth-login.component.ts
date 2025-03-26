@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { DialogRef } from '@angular/cdk/dialog';
 import { AuthenticationForm } from '../../forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { AuthFacade } from '@fiap-tech-challenge/shared-data-access';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 
 @Component({
@@ -16,6 +17,7 @@ import { AuthFacade } from '@fiap-tech-challenge/shared-data-access';
 export class AuthLoginComponent {
   #dialogRef = inject(DialogRef<AuthLoginComponent>);
 
+  #destroyRef = inject(DestroyRef);
   #facade = inject(AuthFacade);
 
   isLogged = this.#facade.isLogged$;
@@ -29,10 +31,8 @@ export class AuthLoginComponent {
 
   submit() {
     if (this.form.invalid) return;
-    this.#facade.login(this.form.getRawValue()).add(
-      () => {
-        if (this.isLogged()) this.close();
-      }
-    )
+    this.#facade.login(this.form.getRawValue())
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe(() => this.close())
   }
 }

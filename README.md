@@ -36,6 +36,18 @@ Dentro de cada escopo em `libs`, as camadas são divididas em:
 
 Essa estrutura segue os princípios de **Domain-Driven Design (DDD)** e **Clean Architecture**, promovendo modularidade e facilidade de manutenção.
 
+## Arquitetura de Microfrontends com Nx
+
+O projeto Bytebank é uma aplicação baseada em microfrontends, onde cada módulo é desenvolvido, testado e implantado de forma independente, permitindo escalabilidade e manutenção facilitada.
+Na imagem abaixo, é possível visualizar a arquitetura do projeto, com o host `Bytebank` orquestrando os remotes `Institutional` e `Dashboard`:
+![Projeto](apps/bytebank/public/assets/images/graph.png)
+
+Nesta imagem é possível observar o comportamento isolado dos remotes sem o compartilhamento da lib `shared`:
+![Projeto](apps/bytebank/public/assets/images/projects-graph.png)
+
+A api possui um banco de dados MongoDB (com docker docker em dev) e um servidor GraphQL para autenticação e um servidor REST para transações.
+![Projeto](apps/bytebank/public/assets/images/api-arch.png)
+
 ## Tecnologias Utilizadas
 
 - **Angular 19**: Framework principal para construção das aplicações, utilizando recursos modernos como Signals para gerenciamento de estado reativo.

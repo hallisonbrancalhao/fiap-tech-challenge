@@ -12,7 +12,7 @@
   <ui-modal *ngIf="isModalOpen()" (onCloseModal)="closeModal()" classNameExt="sm:hidden">
     <div class="text-black-default flex flex-col gap-4 mt-2 mb-6 mx-6">
       <ng-container *ngFor="let option of menuOptions(); let last = last">
-        <a [href]="'#' + option" class="text-center">{{ option }}</a>
+        <a [routerLink]="option.path" class="text-center" routerLinkActive="active" >{{ option.label }}</a>
         <hr *ngIf="!last" class="h-0.5 border-t-0 bg-black-default" />
       </ng-container>
     </div>

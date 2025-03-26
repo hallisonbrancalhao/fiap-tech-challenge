@@ -5,11 +5,25 @@
     <a href="#" class="hover:text-green-400">Serviços</a>
   </div>
   <div class="flex space-x-2">
-    <button class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700" (click)="handleCreateAccount()">
-      Abrir minha conta
-    </button>
-    <button class="border border-green-600 text-green-600 px-4 py-2 rounded-md hover:bg-green-600 hover:text-white" (click)="handleLogin()">
-      Já tenho conta
-    </button>
+    @if (user()) {
+      <div class="flex items-center space-x-2 gap-2 mx-2">
+        <span class="material-symbols-rounded">person</span>
+        <p>Bem vindo, <span class="text-white font-bold">{{ user() }}</span>!</p>
+      </div>
+      <a class="bg-green-600 flex items-center gap-1 text-white px-4 py-1 rounded-md hover:bg-green-700" [routerLink]="'/dashboard'">
+        <span class="material-symbols-rounded">dashboard</span>
+        Dashboard
+      </a>
+      <button class="border border-green-600 text-green-600 px-4 py-1 rounded-md hover:bg-green-600 hover:text-white" (click)="handleLogout()">
+        Sair
+      </button>
+    } @else {
+      <button class="bg-green-600 text-white px-4 py-1 rounded-md hover:bg-green-700" (click)="handleCreateAccount()">
+        Abrir minha conta
+      </button>
+      <button class="border border-green-600 text-green-600 px-4 py-1 rounded-md hover:bg-green-600 hover:text-white" (click)="handleLogin()">
+        Já tenho conta
+      </button>
+    }
   </div>
 </header>

@@ -7,6 +7,7 @@ import { HttpLink } from 'apollo-angular/http';
 import { InMemoryCache } from '@apollo/client';
 import { environment } from '../environments/environment.dev';
 import { loggingInterceptor } from '../interceptors/http.interceptos';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,6 +19,7 @@ export const appConfig: ApplicationConfig = {
       };
     }),
     provideHttpClient(withInterceptors([loggingInterceptor])),
+    provideAnimationsAsync(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
   ],

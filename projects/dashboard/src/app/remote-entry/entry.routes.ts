@@ -1,7 +1,8 @@
 import { Route } from '@angular/router';
 import { RemoteEntryComponent } from './entry.component';
 import { authGuard } from '@fiap-tech-challenge/shared-data-access';
-import { CreateTransactionComponent } from '@fiap-tech-challenge/feature-info';
+import { CreateTransactionComponent, MyCardsComponent, OptionsPanelComponent } from '@fiap-tech-challenge/feature-info';
+import { AppTabsComponent } from '@fiap-tech-challenge/chart';
 
 export const remoteRoutes: Route[] = [
   {
@@ -17,6 +18,18 @@ export const remoteRoutes: Route[] = [
       {
         path: 'home',
         component: CreateTransactionComponent
+      },
+      {
+        path: 'services',
+        component: OptionsPanelComponent
+      },
+      {
+        path: 'my-cards',
+        component: MyCardsComponent
+      },
+      {
+        path: 'investments',
+        component: AppTabsComponent
       }
     ]
   },

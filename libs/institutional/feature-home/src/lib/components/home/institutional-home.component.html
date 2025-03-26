@@ -1,4 +1,4 @@
-<ui-header-institutional (createAccount)="handleCreateAccount()" (login)="handleLogin()" />
+<ui-header-institutional [user]="user$()" (createAccount)="handleCreateAccount()" (login)="handleLogin()" (logout)="handleLogout()" />
 <section class="bg-gray-50 text-center py-16 px-6 min-h-[calc(100vh-74px-176px)]">
   <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
 
@@ -9,8 +9,7 @@
       <p class="text-lg text-gray-600 mt-4">
         Crie sua conta digital e aproveite os benefícios sem taxas ou mensalidades.
       </p>
-      <button class="mt-6 px-6 py-3 bg-green-600 text-white rounded-lg shadow-md
-                     hover:bg-green-700 transition">
+      <button class="mt-6 px-6 py-3 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 transition" (click)="handleCreateAccount()">
         Abra sua conta
       </button>
     </div>

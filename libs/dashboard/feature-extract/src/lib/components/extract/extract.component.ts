@@ -1,6 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { CurrencyPipe, DatePipe, NgClass, NgForOf, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { TransactionFacade } from '@fiap-tech-challenge/dashboard-data-access';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-dashboard-extract',
@@ -16,10 +17,11 @@ import { TransactionFacade } from '@fiap-tech-challenge/dashboard-data-access';
 })
 export class ExtractComponent implements OnInit {
   #transactionsFacade = inject(TransactionFacade);
+  #destroyRef = inject(DestroyRef)
 
   transactions$ = this.#transactionsFacade.transactions$;
 
   ngOnInit() {
-    this.#transactionsFacade.getTransactions();
+    this.#transactionsFacade.getTransactions().pipe(takeUntilDestroyed(this.#destroyRef)).subscribe()
   }
 }

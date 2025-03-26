@@ -8,11 +8,8 @@
     <div class="flex justify-between items-center">
       <span class="font-semibold">Saldo</span>
       <button (click)="toggleBalance()" class="focus:outline-none">
-        <img
-          [src]="isBalanceVisible() ? 'assets/icons/eye.svg' : 'assets/icons/eye-off.svg'"
-          alt="Toggle visibility"
-          class="w-5 h-5 filter invert"
-        />
+        @if (isBalanceVisible()) { <span class="material-symbols-rounded">visibility</span> }
+        @else { <span class="material-symbols-rounded">visibility_off</span> }
       </button>
     </div>
 

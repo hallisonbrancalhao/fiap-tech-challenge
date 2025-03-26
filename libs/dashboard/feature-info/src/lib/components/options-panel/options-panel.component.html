@@ -1,21 +1,21 @@
 <div class="relative w-full mt-6 rounded-xl shadow-lg overflow-hidden ">
-  <div class="absolute inset-0  bg-gray-background mx-4 rounded-lg" >
-    <img 
+  <div class="absolute inset-0  bg-gray-background rounded-lg" >
+    <img
       class="absolute top-0 right-0  w-15 h-15"
       src="assets/images/pixels-right-top.png"
     />
-    
-    <img 
+
+    <img
       class="absolute bottom-0 left-0  rounded-tl-full w-15 h-15"
       src="assets/images/pixes-left-bottom.png"
     />
   </div>
-  
+
   <div class="relative z-10 p-8 h-full flex flex-col">
     <h2 class="text-2xl font-semibold text-gray-800 mb-8 text-center">{{ title }}</h2>
-    
+
     <div class="flex flex-wrap justify-center gap-6 px-8">
-      <div 
+      <div
         *ngFor="let option of options"
         class="px-6 py-4 bg-white text-highlight rounded-lg cursor-pointer font-medium transition-all duration-300 shadow-md hover:-translate-y-1 hover:shadow-lg "
         (click)="selectOption(option)"

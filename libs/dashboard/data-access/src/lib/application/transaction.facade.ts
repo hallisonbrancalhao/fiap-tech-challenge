@@ -6,7 +6,7 @@ import {
   Amount,
   CreateTransaction,
   DataPieChart
-} from '@fiap-tech-challenge/dashboard-domain';
+} from '../dtos';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { shareReplay, tap } from 'rxjs';
 

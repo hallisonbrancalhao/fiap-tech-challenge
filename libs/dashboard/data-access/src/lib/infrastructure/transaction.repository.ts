@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Transaction, TransactionsTypes, Amount, CreateTransaction } from '@fiap-tech-challenge/dashboard-domain';
+import { Transaction, TransactionsTypes, Amount, CreateTransaction } from '../dtos';
 
 @Injectable({ providedIn: 'root' })
 export class TransactionRepository {

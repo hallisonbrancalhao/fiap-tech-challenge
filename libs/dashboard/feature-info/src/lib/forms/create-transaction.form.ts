@@ -1,6 +1,6 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TypedForm } from '@fiap-tech-challenge/ui-global';
-import { CreateTransaction } from '@fiap-tech-challenge/dashboard-domain';
+import { CreateTransaction } from '@fiap-tech-challenge/dashboard-data-access';
 
 export class CreateTransactionForm extends FormGroup<TypedForm<CreateTransaction>> {
   constructor() {

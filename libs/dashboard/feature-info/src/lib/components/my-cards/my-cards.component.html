@@ -8,35 +8,35 @@
     <div *ngFor="let cartao of cartoes" class="relative rounded-xl shadow-lg">
       <!-- Fundo com os pixels -->
       <div class="absolute inset-0 bg-gray-background mx-4 rounded-lg">
-        <img 
+        <img
           class="absolute top-0 right-0 w-15 h-15"
-          src="assets/images/pixels-right-top.png"
+          src="/assets/images/pixels-right-top.png"
         />
-        
-        <img 
+
+        <img
           class="absolute bottom-0 left-0 rounded-tl-full w-15 h-15"
-          src="assets/images/pixes-left-bottom.png"
+          src="/assets/images/pixes-left-bottom.png"
         />
       </div>
-      
+
       <!-- Conteúdo do cartão -->
       <div class="relative z-10 p-6 h-full">
         <!-- Título do cartão -->
         <h3 class="text-lg font-semibold text-gray-800 mb-4">{{ cartao.tipo }}</h3>
-        
+
         <div class="flex justify-center items-start gap-6">
           <!-- Informações do cartão -->
           <div class="flex-1 max-w-md p-4 rounded-lg shadow-md aspect-3/2 bg-primary">
-            <img class="mb-2" src="assets/images/byte-logo-white.png" />
+            <img class="mb-2" src="/assets/images/byte-logo-white.png" />
             <div class="text-white font-semibold text-lg">Platinum</div>
             <br/>
             <div class="text-white mb-2 text-md">Nome: {{ cartao.nome }}</div>
             <div class="text-white mb-2 text-md">Número: {{ cartao.numero }}</div>
           </div>
-          
+
           <!-- Botões de ação -->
           <div class="flex flex-col gap-2 w-32">
-            <button 
+            <button
               *ngFor="let acao of cartao.acoes"
               class="px-4 py-2 bg-white text-black rounded-lg cursor-pointer font-medium transition-all duration-300 shadow-md hover:-translate-y-1 hover:shadow-lg text-sm"
             >

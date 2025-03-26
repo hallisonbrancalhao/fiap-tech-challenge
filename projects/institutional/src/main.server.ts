@@ -70,6 +70,7 @@ function run(): void {
      * This message allows Nx to determine when the Remote is ready to be
      * consumed by the Host.
      */
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     process.send && process.send('nx.server.ready');
   });
 }

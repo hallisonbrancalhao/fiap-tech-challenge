@@ -5,17 +5,11 @@ import {
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
-import { AuthFacade, AuthRepository } from '@fiap-tech-challenge/shared-data-access';
-
-const FACADES = [ AuthFacade ];
-const REPOSITORIES = [ AuthRepository ];
+import { baseProviders } from '@fiap-tech-challenge/shared-data-access';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    ...FACADES,
-    ...REPOSITORIES,
-    provideHttpClient(),
+    ...baseProviders,
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),

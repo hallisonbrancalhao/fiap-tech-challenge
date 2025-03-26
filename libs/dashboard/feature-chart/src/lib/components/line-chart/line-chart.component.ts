@@ -1,7 +1,7 @@
-import { Component, effect, inject, input, Input, OnInit } from '@angular/core';
+import { Component, effect, inject, input, OnInit } from '@angular/core';
 import { LineChartModule } from '@swimlane/ngx-charts';
-import { Transaction } from '@fiap-tech-challenge/dashboard-domain';
-import { TransactionFacade } from '@fiap-tech-challenge/dashboard-data-access';
+import { TransactionFacade, Transaction } from '@fiap-tech-challenge/dashboard-data-access';
+import { DataLineChart } from '@fiap-tech-challenge/dashboard-data-access';
 
 @Component({
   selector: 'app-line-chart',
@@ -13,7 +13,7 @@ export class LineChartComponent implements OnInit {
   transactions = input<Transaction[]>();
   #transactionsFacade = inject(TransactionFacade);
 
-  multi: any[] = [];
+  multi: DataLineChart[] = [];
   view: [number, number] = [720, 500];
 
   // options
@@ -23,8 +23,8 @@ export class LineChartComponent implements OnInit {
   yAxis = true;
   showYAxisLabel = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Month';
-  yAxisLabel = 'Value';
+  xAxisLabel = 'Mês';
+  yAxisLabel = 'Valor';
   timeline = true;
 
   ngOnInit() {

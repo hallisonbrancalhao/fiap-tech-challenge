@@ -44,6 +44,7 @@
         "libs/shared/ui-components/src/index.ts"
       ],
       "@fiap-tech-challenge/ui-global": ["libs/shared/ui-global/src/index.ts"],
+      "@fiap-tech-challenge/environment/*": ["libs/shared/data-access/src/lib/core/environments"],
       "dashboard/Routes": [
         "projects/dashboard/src/app/remote-entry/entry.routes.ts"
       ],

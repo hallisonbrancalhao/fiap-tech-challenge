@@ -83,7 +83,7 @@ O estado dos componentes é gerenciado de forma reativa utilizando **Signals**, 
 
 ### Pré-requisitos
 - Node.js (versão 20.x ou superior)
-- Nx CLI (`npm install -g nx`)
+- Nx CLI (`npm install -g nx`) _(opcional)_
 - Dependências do projeto (`npm install`)
 
 ### Passos
@@ -96,6 +96,10 @@ O estado dos componentes é gerenciado de forma reativa utilizando **Signals**, 
    ```bash
    npm run start:dev
    ```
+   - Caso deseje executar o projeto em produção:
+   ```bash
+    npm start
+    ```
 3. Execute o host e os remotes:
   - Host (`bytebank`):
     ```bash

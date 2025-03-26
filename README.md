@@ -86,6 +86,12 @@ O estado dos componentes é gerenciado de forma reativa utilizando **Signals**, 
 - Nx CLI (`npm install -g nx`) _(opcional)_
 - Dependências do projeto (`npm install`)
 
+### Clonagem da API (Opcional)
+
+A API do projeto já é orquestrada via Docker. No entanto, caso queira baixar o código-fonte, o repositório público está disponível em:
+
+[https://github.com/hallisonbrancalhao/fiap-tech-challenge-api](https://github.com/hallisonbrancalhao/fiap-tech-challenge-api)
+
 ### Passos
 
 1. Instale as dependências:
@@ -98,7 +104,7 @@ O estado dos componentes é gerenciado de forma reativa utilizando **Signals**, 
    ```
    - Caso deseje executar o projeto em produção:
    ```bash
-    npm start
+    npm run start
     ```
 3. Execute o host e os remotes:
   - Host (`bytebank`):

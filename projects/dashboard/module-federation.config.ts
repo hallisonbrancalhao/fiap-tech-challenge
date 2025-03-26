@@ -5,6 +5,15 @@ const config: ModuleFederationConfig = {
   exposes: {
     './Routes': 'projects/dashboard/src/app/remote-entry/entry.routes.ts',
   },
+  shared: (libraryName, defaultConfig) => {
+    if (libraryName.includes(`@apollo/client/`)) {
+      return {
+        ...defaultConfig,
+        version: '3.13.5',
+      }
+    }
+    return defaultConfig;
+  },
 };
 
 /**

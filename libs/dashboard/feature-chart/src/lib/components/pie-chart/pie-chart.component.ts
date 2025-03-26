@@ -1,7 +1,6 @@
 import { Component, effect, inject, input } from '@angular/core';
 import { LegendPosition, PieChartModule } from '@swimlane/ngx-charts';
-import { DataPieChart, Transaction } from '@fiap-tech-challenge/dashboard-domain';
-import { TransactionFacade } from '@fiap-tech-challenge/dashboard-data-access';
+import { TransactionFacade, DataPieChart, Transaction  } from '@fiap-tech-challenge/dashboard-data-access';
 
 @Component({
   selector: 'app-pie-chart',

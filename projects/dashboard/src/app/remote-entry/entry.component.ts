@@ -1,16 +1,11 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from '../components';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
-  imports: [CommonModule, DashboardComponent, RouterOutlet],
+  imports: [CommonModule, DashboardComponent],
   selector: 'app-dashboard-entry',
-  template: `
-    <app-dashboard>
-      <router-outlet/>
-    </app-dashboard>
-  `,
+  template: `<app-dashboard />`,
   encapsulation: ViewEncapsulation.None,
 })
 export class RemoteEntryComponent {}

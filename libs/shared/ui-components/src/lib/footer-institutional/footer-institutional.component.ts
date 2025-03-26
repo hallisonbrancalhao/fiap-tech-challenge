@@ -17,7 +17,7 @@ import { Component } from '@angular/core';
         <p>ouvidoria&#64;bytebank.com.br</p>
       </section>
       <section class="flex items-center">
-        <img src="assets/white-logo.svg" alt="Logo" class="w-auto h-8">
+        <img src="/assets/white-logo.svg" alt="Logo" class="w-auto h-8">
       </section>
     </footer>
   `,

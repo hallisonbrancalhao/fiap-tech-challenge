@@ -28,7 +28,9 @@ export class AuthRegisterComponent {
 
   submit() {
     if (this.form.invalid) return;
-    this.#facade.register(this.form.getRawValue()).pipe(takeUntilDestroyed(this.#destroyRef))
-      .subscribe(() => this.close())
+    this.#facade
+      .register(this.form.getRawValue())
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe(() => this.close());
   }
 }

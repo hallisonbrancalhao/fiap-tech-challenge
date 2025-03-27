@@ -46,6 +46,7 @@ Nesta imagem é possível observar o comportamento isolado dos remotes sem o com
 ![Projeto](apps/bytebank/public/assets/images/projects-graph.png)
 
 A api possui um banco de dados MongoDB (com docker docker em dev) e um servidor GraphQL para autenticação e um servidor REST para transações.
+
 ![Projeto](apps/bytebank/public/assets/images/api-arch.png)
 
 ## Tecnologias Utilizadas
@@ -88,7 +89,7 @@ O estado dos componentes é gerenciado de forma reativa utilizando **Signals**, 
 
 ### Clonagem da API (Opcional)
 
-A API do projeto já é orquestrada via Docker, com os scripts que executam o projeto ambiente de desenvolvimento (Passo 2 - o script para ambiente de desenvolvimento). No entanto, caso queira baixar o código-fonte e também rodar localmente, o repositório público está disponível em:
+A API do projeto já é orquestrada via Docker, com os scripts que executam o projeto ambiente de desenvolvimento (Passo 2 - o script para ambiente de `desenvolvimento`). No entanto, caso queira baixar o código-fonte e também rodar localmente, o repositório público está disponível em:
 
 [https://github.com/hallisonbrancalhao/fiap-tech-challenge-api](https://github.com/hallisonbrancalhao/fiap-tech-challenge-api)
 
@@ -99,15 +100,15 @@ A API do projeto já é orquestrada via Docker, com os scripts que executam o pr
    npm install
    ```
 
-2. Execute o projeto principal em produção (`bytebank`):
+2. Execute o projeto principal em <mark>produção</mark> (`bytebank`):
    ```bash
    npm run start
    ```
-   - Ou caso deseje, execute o projeto em desenvolvimento, já orquestrado com a API via docker:
+   - Ou caso deseje, execute o projeto em <mark>desenvolvimento</mark>, já orquestrado com a API via docker:
    ```bash
      npm run start:dev
    ```
-    - Ou caso deseje, execute o projeto localmente. Neste caso, é necessário clonar e executar a API localmente - ver subtópico "Clonagem da API":
+    - Ou caso deseje, execute o projeto <mark>localmente</mark>. Neste caso, é necessário clonar e executar a API localmente - ver subtópico "Clonagem da API":
    ```bash
     npm run start:local
     ```

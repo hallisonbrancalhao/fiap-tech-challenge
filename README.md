@@ -88,7 +88,7 @@ O estado dos componentes é gerenciado de forma reativa utilizando **Signals**, 
 
 ### Clonagem da API (Opcional)
 
-A API do projeto já é orquestrada via Docker. No entanto, caso queira baixar o código-fonte, o repositório público está disponível em:
+A API do projeto já é orquestrada via Docker, com os scripts que executam o projeto ambiente de desenvolvimento (Passo 2 - o script para ambiente de desenvolvimento). No entanto, caso queira baixar o código-fonte e também rodar localmente, o repositório público está disponível em:
 
 [https://github.com/hallisonbrancalhao/fiap-tech-challenge-api](https://github.com/hallisonbrancalhao/fiap-tech-challenge-api)
 
@@ -97,14 +97,19 @@ A API do projeto já é orquestrada via Docker. No entanto, caso queira baixar o
 1. Instale as dependências:
    ```bash
    npm install
-
-2. Execute o projeto pincipal em desenvolvimento (`bytebank`):
-   ```bash
-   npm run start:dev
    ```
-   - Caso deseje executar o projeto em produção:
+
+2. Execute o projeto principal em produção (`bytebank`):
    ```bash
-    npm run start
+   npm run start
+   ```
+   - Ou caso deseje, execute o projeto em desenvolvimento, já orquestrado com a API via docker:
+   ```bash
+     npm run start:dev
+   ```
+    - Ou caso deseje, execute o projeto localmente. Neste caso, é necessário clonar e executar a API localmente - ver subtópico "Clonagem da API":
+   ```bash
+    npm run start:local
     ```
 3. Execute o host e os remotes:
   - Host (`bytebank`):

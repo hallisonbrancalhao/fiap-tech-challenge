@@ -5,6 +5,7 @@
   "scripts": {
     "start": "npx nx run bytebank:serve:production --devRemotes=dashboard,institutional",
     "start:dev": "npm run services:up && npx nx run bytebank:serve --devRemotes=dashboard,institutional --watch=true",
+    "start:local": "npx nx run bytebank:serve --devRemotes=dashboard,institutional",
     "services:up": "docker compose up -d",
     "services:down": "docker compose down"
   },

@@ -130,6 +130,10 @@ A API do projeto já é orquestrada via Docker, com os scripts que executam o pr
 - Remote (`institutional`): `http://localhost:4201`
 - Remote (`dashboard`): `http://localhost:4202`
 
+  ## Vídeo Demonstrativo
+
+  - https://youtu.be/RkJWD9oFDNE
+
 ## Boas Práticas Adotadas
 - **Modularidade**: Uso de microfrontends e bibliotecas para escalabilidade.
 - **Separação de Responsabilidades**: Lógica abstraída nas camadas de `libs`, sem poluição nos hosts.
